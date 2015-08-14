@@ -12,14 +12,17 @@ main.controller('MainCtrl', function ($scope, $window, beerPmt, jwtHelper) {
   $scope.user = $scope.decodedJwt.username;
 
   // Rename this function to something that better describes what it does
-  $scope.beered = function (user) {
-    beerPmt.recievePmt(user);
-    //.then(function () {
-      $scope.text = 'Clicked';
-    //});
-  };
+  // $scope.beered = function (user) {
+  //   beerPmt.recievePmt(user);
+  //   //.then(function () {
+  //     $scope.text = 'Clicked';
+  //   //});
+  // };
 
   $scope.sendBeer = function (user) {
-    beerPmt.newIOU($scope.toUser);
+    var user = beerPmt.newIOU(user);
+    $scope.network = user.network;
   };
+
+
 });
