@@ -1,1 +1,1 @@
-web: grunt build; grunt server-dev
+web: npm start
